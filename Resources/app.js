@@ -7,12 +7,13 @@ var Map = require('ti.map');
 // Rows
 //=====================================================================
 var rows = [
-    require('tests/multiMap'),
-    require('tests/annotations'),
-    require('tests/routes'),
-    require('tests/3d'),
-    require('tests/drawing'),
-    require('tests/lite')
+    { ...require('tests/multiMap') },
+    { ...require('tests/annotations') },
+    { ...require('tests/routes') },
+    { ...require('tests/3d') },
+    { ...require('tests/drawing') },
+    { ...require('tests/drawing'), params: { withList: true } },
+    { ...require('tests/lite') },
 ];
 
 if (IOS) {
@@ -28,6 +29,9 @@ if (ANDROID && Map.isGooglePlayServicesAvailable() != Map.SUCCESS) {
 
 function startUI() {
     UI.init(rows, function(e) {
-        rows[e.index].run && rows[e.index].run(UI, Map);
+        var item = rows[e.index]
+        if (item && item.run) {
+            item.run(UI, Map, item.params);
+        }
     });
 }

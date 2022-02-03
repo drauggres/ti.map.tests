@@ -1,7 +1,7 @@
 exports.title = 'Drawing';
 
-exports.run = function (UI, Map) {
-    var win = UI.createWindow(exports.title);
+exports.run = function (UI, Map, params) {
+    var win = UI.createWindow(exports.title, params);
 
     var rows = [
         {
@@ -70,7 +70,7 @@ exports.run = function (UI, Map) {
 
     var tableView = Ti.UI.createTableView({
         top: 0,
-        bottom: '50%',
+        height: '50%',
         data: rows
     });
     win.add(tableView);
@@ -188,10 +188,14 @@ exports.run = function (UI, Map) {
       region: {latitude: -33.87365, longitude: 151.20689, latitudeDelta:0.05, longitudeDelta:0.05}, //Sydney
       top: '50%'
     });
-    
+
     Ti.API.info("userLocation: " + map.userLocation);
-    win.add(map);
-    
+    if (params && params.withList) {
+      require('../listView').addListViewWIthMapToWindow(map, win);
+    } else {
+      win.add(map);
+    }
+
     map.addEventListener('click', function(e) {
       Ti.API.info("Click Event: " + e.source);
       Ti.API.info(JSON.stringify(e));

@@ -10,14 +10,18 @@ function init(rows, onClick) {
 
     var transformedRows = [];
 
-    for (var row in rows) {
+    rows.forEach(function(row) {
+        var title = row.title;
+        if (row.params) {
+            title += JSON.stringify(row.params);
+        }
         transformedRows.push({
-            title: rows[row].title,
+            title: title,
             font: {
                 fontSize: 25
-           }
+            }
         });
-    }
+    });
 
     var tableView = Ti.UI.createTableView({
         top: 0,
@@ -40,8 +44,10 @@ function init(rows, onClick) {
     }
 }
 
-function createWindow(title) {
-
+function createWindow(title, params) {
+    if (params) {
+        title += JSON.stringify(params);
+    }
     var win = Ti.UI.createWindow({
         backgroundColor: '#FFF',
         title: title,
