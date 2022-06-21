@@ -3,13 +3,17 @@ exports.title = 'Map with offline image tiles overlay';
 exports.run = function(UI, Map) {
     var win = UI.createWindow(exports.title);
     
+    // Tiles can be generated with this: https://github.com/mbender74/MapTilesDownloader
+
     var map1 = Map.createView({
         userLocation: true,
         mapType: Map.NORMAL_TYPE, // could also be Map.NONE_TYPE
         animate: true,
         minZoom:14, 
         maxZoom:20,
+        liteMode:true,
         region: {
+            zoom:16,
             latitude: 49.54119,
             longitude: 7.33233,
             latitudeDelta: parseFloat((parseFloat(49.5487)-parseFloat(49.5300))/2),
