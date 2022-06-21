@@ -1,0 +1,15 @@
+{
+    "profile": "mercator", 
+    "attribution": "Map Tiles Downloader via AliFlux", 
+    "center": "7.330284118652344,49.53868855870424,20", 
+    "generator": "Map Tiles Downloader via AliFlux", 
+    "format": "png", 
+    "description": "Map Tiles Downloader via AliFlux", 
+    "tilesize": "256", 
+    "bounds": "7.315177917480469,49.53055657928004,7.345390319824219,49.546820538128436", 
+    "minzoom": "16", 
+    "maxzoom": "20", 
+    "scheme": "tms", 
+    "type": "overlay", 
+    "name": "tiles.mbtiles"
+}

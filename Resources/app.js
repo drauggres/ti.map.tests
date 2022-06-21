@@ -8,6 +8,7 @@ var Map = require('ti.map');
 //=====================================================================
 var rows = [
     { ...require('tests/multiMap') },
+    { ...require('tests/offlinetileoverlay') },
     { ...require('tests/annotations') },
     { ...require('tests/routes') },
     { ...require('tests/3d') },

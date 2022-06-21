@@ -48,7 +48,7 @@
 		</manifest>
 	</android>
 	<modules>
-		<module version="5.3.4" platform="android">ti.map</module>
+		<module version="5.5.0" platform="android">ti.map</module>
 	</modules>
 	<deployment-targets>
 		<target device="android">true</target>
